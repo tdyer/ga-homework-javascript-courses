@@ -3,26 +3,42 @@ var CourseApp = {};
 
 // =========== Student ==============
 CourseApp.Student = function(name) {
-                 // a student object properties
-}
-CourseApp.Student.prototype.generate_html = function(){ ...}
+  this.name = name;
+};
+CourseApp.Student.prototype.generate_html = function(){
+  return "<li>" + this.name + "</li>";
+};
 
 
 // =========== Teacher ==============
 CourseApp.Teacher = function(name) {
-                 // a teacher object properties
+  this.name = name;
 }
-CourseApp.Teacher.prototype.generate_html = function(){ ...}
+CourseApp.Teacher.prototype.generate_html = function(){
+	return "<li>" + this.name + "</li>";
+};
 
 // =========== Course ==============
 CourseApp.Course = function(name) {
-                 // a course object properties
+  this.name = name;
+  this.teachers = [];
+  this.students = [];
 }
 
 // This will generate *all* of the html for a specific course
-CourseApp.Course.prototype.generate_html = function(){ ...}
-CourseApp.Course.prototype.add_teacher = function(teacher){ ...}
-CourseApp.Course.prototype.add_student = function(student){ ...}
+CourseApp.Course.prototype.generate_html = function(){
+	return "<h1> Course: " + this.name + "</h1>";
+};
+CourseApp.Course.prototype.add_teacher = function(teacher){
+	var name = prompt("Teacher name");
+	new_teacher = new Teacher(name);
+	this.teachers.push(new_teacher);
+};
+CourseApp.Course.prototype.add_student = function(student){
+  var name = prompt("Student name");
+  new_student = new Student(name);
+  this.students.push(new_student);
+}
 
 
 // Create a course
