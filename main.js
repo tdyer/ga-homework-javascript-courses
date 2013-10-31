@@ -1,8 +1,11 @@
 var CourseApp = {};
 
 // =========== Student ==============
+var students = [];
+
 CourseApp.Student = function(name) {
 	this.name = name;
+	students.push(this);
 };
 
 CourseApp.Student.prototype.generate_html = function() {
@@ -68,16 +71,16 @@ CourseApp.Course.prototype.generate_html = function(){
 
 
 // // Create a course
-course1 = new CourseApp.Course("English 101");
+var course1 = new CourseApp.Course("English 101");
 
 // // Create a teacher and add it to the above course.
-susan = new CourseApp.Teacher("Susan Ruddock");
+var susan = new CourseApp.Teacher("Susan Ruddock");
 course1.add_teacher(susan);
 
 // // Create a couple of students and add it to the above course.
-blake = new CourseApp.Student("Blake Ruddock");
-erin = new CourseApp.Student("Erin Ruddock");
-jenna = new CourseApp.Student("Jenna Ruddock");
+var blake = new CourseApp.Student("Blake Ruddock");
+var erin = new CourseApp.Student("Erin Ruddock");
+var jenna = new CourseApp.Student("Jenna Ruddock");
 course1.add_student(blake);
 course1.add_student(erin);
 course1.add_student(jenna);
@@ -85,16 +88,33 @@ course1.add_student(jenna);
 // // Generate the HTML for this course
 course1.generate_html();
 
-
-// CourseApp.course_names = ['psych', 'algebra'];
-
-CourseApp.add_course = function(){
+CourseApp.add_course = function() {
 	var name = prompt("What's the name of the course?");
 	var course = new CourseApp.Course(name);
 	course.generate_html();
 };
 
-// CourseApp.student_names = ['bob', 'alice', 'tom', 'mike', 'joe', 'frank', 'ed'];
-// CourseApp.add_student = function(e){
-//   // Add a student, can get the names from student_names above!
-// }
+CourseApp.add_student = function() {
+ 	var name = prompt("What's the student name?");
+	var course = new CourseApp.Student(name);
+	CourseApp.print_all_students();
+};
+
+// print out all students
+CourseApp.print_all_students = function() {
+	students_html = "";
+	var i = 0;
+	var max = students.length;
+		for (; i < max;) {
+			var student = students[i];
+			students_html += student.generate_html();
+			i += 1;
+		}
+	var students_list_html = "<br/><div id='all-students'><h2>All Students</h2><ul>"+ students_html + "</ul></div>";
+	var students_div = document.getElementById('students').innerHTML;
+	students_div = students_list_html;
+	document.getElementById('students').innerHTML = students_div;
+};
+
+
+CourseApp.print_all_students();
