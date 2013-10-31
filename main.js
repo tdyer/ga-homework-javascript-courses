@@ -40,6 +40,12 @@ CourseApp.Teacher.prototype.generate_html = function(){
 	document.getElementById('teachers').innerHTML = teacher_html;
 };
 
+var david = new CourseApp.Teacher("David Fisher");
+david.generate_html();
+
+var tom = new CourseApp.Teacher("Tom Dyer");
+tom.generate_html();
+
 // =========== COURSE ==============
 CourseApp.Course = function(name) {
 	this.name = name;
@@ -53,35 +59,43 @@ CourseApp.Course.prototype.generate_html = function(){
 	document.getElementById('courses').innerHTML = course_html;
 };
 
+var WDI = new CourseApp.Course("Web Development Immersive");
+WDI.generate_html();
+
+var BEWD = new CourseApp.Course("Back End Web Development");
+BEWD.generate_html();
 
 
 
+///////////////////////////////////////////////////////////
+//                                                       //
+//            BONUS STAGE BELOW                          //
+//                                                       //
+///////////////////////////////////////////////////////////
 
-// ///////////////////////////////////////////////////////////
-// //                                                       //
-// //            BONUS STAGE BELOW                          //
-// //                                                       //
-// ///////////////////////////////////////////////////////////
 
+// The following 3 methods will run ONLY when you click the 
+// 'Add Foo' button in the HTML. Ignore what the 'e' is in each
+// of the methods
 
-// // The following 3 methods will run ONLY when you click the 
-// // 'Add Foo' button in the HTML. Ignore what the 'e' is in each
-// // of the methods
+// For example, if I click the 'Add Teacher' button on the page
+// the 'CourseApp.add_teacher' method will run
 
-// // For example, if I click the 'Add Teacher' button on the page
-// // the 'CourseApp.add_teacher' method will run
+CourseApp.add_teacher = function(e){
+  // var name = prompt("Teacher name?");
+  // teacher = new CourseApp.Teacher(name);
+  // teacher.generate_html;
 
-// CourseApp.add_teacher = function(e){
-//   // Prompt the user for information to add a teacher
-//   // Append this teacher to the list of teachers on the page
-// }
+  // Prompt the user for information to add a teacher
+  // Append this teacher to the list of teachers on the page
+}
 
-// CourseApp.add_course = function(e){
-//   // Prompt the user for information to add a course
-//   // Append this course to the list of courses on the page
-// }
+CourseApp.add_course = function(e){
+  // Prompt the user for information to add a course
+  // Append this course to the list of courses on the page
+}
 
-// CourseApp.add_student = function(e){
-//   // Prompt the user for information to add a student
-//   // Append this student to the list of students on the page
-// }
+CourseApp.add_student = function(e){
+  // Prompt the user for information to add a student
+  // Append this student to the list of students on the page
+}
