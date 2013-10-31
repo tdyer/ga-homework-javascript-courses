@@ -10,14 +10,14 @@ CourseApp.Student.prototype.generate_html = function(){
 };
 
 
-// // =========== Teacher ==============
-// CourseApp.Teacher = function(name) {
-//                  // a teacher object properties
-// };
+// =========== Teacher ==============
+CourseApp.Teacher = function(name) {
+	this.name = name;
+};
 
-// CourseApp.Teacher.prototype.generate_html = function(){
-
-// };
+CourseApp.Teacher.prototype.generate_html = function(){
+    return "<div id='teacher'>Teacher: " + this.name + "</div>";
+};
 
 // // =========== Course ==============
 // CourseApp.Course = function(name) {
